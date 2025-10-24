@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
+  <style>
+    @font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Paperozi'; font-weight:400;}
+    #wrap{width:100%;max-width:720px;margin:0 auto;padding:10px;}
+    .table-container{overflow-x:auto; max-width:100%; position:relative;}
+    table{border-collapse:collapse; width:100%; min-width:800px;}
+    th, td{padding:10px 15px; border:1px solid #ddd; text-align:center;}
+    thead th{position:sticky; top:0; background:#fff; z-index:3;}
+    tbody th, thead th:first-child{position:sticky; left:0; background:#f9f9f9; z-index:99; border-right:1px solid #ccc;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="table-container">
+      <table id="meatTable">
+        <thead>
+          <tr>
+            <th>가게</th>
+            <th>메뉴</th>
+            <th>가격대</th>
+            <th>룸여부</th>
+            <th>혜택</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const data = [
+      { name: "돼봉삼겹살", link: "https://naver.me/xGIP9lqH", menu: "삼겹살", price: "1100g 88,500", room: "비용발생", benefit: "-" },
+      { name: "고기꾼김춘배", link: "https://naver.me/FN7p8mrx", menu: "오겹살", price: "150g 17,000", room: "O", benefit: "5시 이전 방문 돈갈비 1인분" },
+      { name: "다몽집", link: "https://naver.me/xRhrnw7o", menu: "삼겹살", price: "170g 17,000", room: "O", benefit: "된장찌개 쿠폰" },
+      { name: "목구멍", link: "https://naver.me/5Fmdt4oW", menu: "미박삼겹살", price: "150g 14,000", room: "X", benefit: "미역국 or 파티불꽃" },
+      { name: "삼육가", link: "https://naver.me/xP8e8yrs", menu: "꽃삼겹", price: "180g 19,000", room: "O", benefit: "-" },
+      { name: "봉우이층집", link: "https://naver.me/5Q37KWvS", menu: "통삼겹", price: "150g 17,000", room: "O", benefit: "리뷰이벤트 음료수" },
+      { name: "영동그집", link: "https://naver.me/xX75b8ug", menu: "그집 삼겹살", price: "150g 18,000", room: "X", benefit: "-" },
+    ];
+
+    const tbody = document.querySelector("#meatTable tbody");
+
+    data.forEach(item => {
+      const tr = document.createElement("tr");
+
+      const th = document.createElement("th");
+      const a = document.createElement("a");
+      a.href = item.link;
+      a.textContent = item.name;
+      th.appendChild(a);
+      tr.appendChild(th);
+
+      ["menu","price","room","benefit"].forEach(key => {
+        const td = document.createElement("td");
+        td.textContent = item[key];
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+  </script>
+</body>
+</html>
