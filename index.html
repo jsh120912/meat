@@ -7,40 +7,13 @@
   <style>
     @font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'Paperozi'; font-weight:400;}
+    body{font-family:'Paperozi'; font-weight:400; font-size: 12px;}
     #wrap{width:100%;max-width:720px;margin:0 auto;padding:10px;}
-body{
-    font-family:'Paperozi'; 
-    font-weight:400;
-    font-size:12px; /* 글자 크기 12px */
-}
-
-th, td{
-    padding:6px 8px; /* 패딩도 조금 줄임 */
-    font-size:12px;   /* 글자 크기 12px */
-}
-
-
-table{
-    border-collapse:collapse; 
-    width:100%; 
-    min-width:720px; /* 구조 그대로 유지 */
-}
-
-thead th{
-    position:sticky; 
-    top:0; 
-    background:#fff; 
-    z-index:3;
-}
-
-tbody th, thead th:first-child{
-    position:sticky; 
-    left:0; 
-    background:#f9f9f9; 
-    z-index:99; 
-    border-right:1px solid #ccc;
-}
+    .table-container{overflow-x:auto; max-width:100%; position:relative;}
+    table{border-collapse:collapse; width:100%; min-width:800px;}
+    th, td{padding:10px 15px; border:1px solid #ddd; text-align:center;}
+    thead th{position:sticky; top:0; background:#fff; z-index:3;}
+    tbody th, thead th:first-child{position:sticky; left:0; background:#f9f9f9; z-index:99; border-right:1px solid #ccc;}
   </style>
 </head>
 <body>
